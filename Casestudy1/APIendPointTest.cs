@@ -37,9 +37,11 @@ namespace Casestudy1
 
                 test.Pass("Create token test passed All asserts");
             }
-            catch (AssertionException)
+            catch (AssertionException ex)
             {
-                test.Fail("Create token test fail");
+                string message = ex.Message;
+                Log.Error(message);
+                test.Fail(message+"Create token test fail");
             }
         }
         [Test]
@@ -61,8 +63,10 @@ namespace Casestudy1
                 Log.Information("Booking ids fetched correct");
                 test.Pass("Get Booking Ids test Passed");
             }
-            catch (AssertionException)
+            catch (AssertionException ex)
             {
+                string message = ex.Message;
+                Log.Error(message);
                 test.Fail("Get Booking Ids test Failed");
             }
         }
